@@ -12,11 +12,11 @@ for (const key of Object.keys(mainObj)) {
     console.log("Wrting to: " + key)
     const wholeStr = current.reduce((a, b) => a + "\n" + b.replace("|", ""))
     allArr = allArr.concat(current)
-    fs.writeFileSync(`${key}.txt`, wholeStr);
+    fs.writeFileSync(`../${key}.txt`, wholeStr);
 }
 console.log(allArr.length)
 
-fs.writeFileSync('allWords.txt', allArr.sort().map(n => n.replace("|", "")).sort().reduce((a, b, i , arr) => {
+fs.writeFileSync('../allWords.txt', allArr.sort().map(n => n.replace("|", "")).sort().reduce((a, b, i , arr) => {
     if (i === 0) {
         return a + "\n" + b;
     } else if (b == arr[i - 1]) {
